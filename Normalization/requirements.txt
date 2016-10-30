@@ -1,0 +1,7 @@
+elasticsearch==7.10.1
+numpy==1.20.3
+jieba==0.39
+pandas==1.1.5
+rank-bm25==0.2.1
+scikit-learn==0.24.1
+scipy==1.5.4

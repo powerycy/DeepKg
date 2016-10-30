@@ -1,0 +1,1 @@
+python recall/run.py --model_type=es --config_file=./train_config/config.ini
