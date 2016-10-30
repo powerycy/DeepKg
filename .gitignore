@@ -1,0 +1,41 @@
+#  Local .terraform directories
+**/.terraform/*
+**/w2v_model/
+**/saved/
+**/runs/*
+**/.idea/
+**/__pycache__/
+**/.ipynb_checkpoints/
+**/summarys/
+task/.idea/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*checkpoint
+**/model.ckpt*
+*.ckpt*
+# .tfvars files
+*.tfvars
+*.all
+*.hdf5
+*.json
+*.csv
+*.xml
+*.zip
+*.rar
+*.bin
+*.vec
+*.model
+*.gz
+*.bz2
+*.word
+*.pkl
+*.tsv
+*.neg
+*.pos
+*.pth
+*.log
+
+**/config_altas.ini
+**/config_local.ini
