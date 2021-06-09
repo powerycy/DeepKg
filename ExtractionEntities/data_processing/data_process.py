@@ -2,11 +2,11 @@ import torch
 from torch.utils.data import Dataset,DataLoader
 from transformers import BertModel, BertConfig,PreTrainedTokenizerFast,BertTokenizerFast
 import json
-from tools import search
-from tools import token_rematch
+from utils.tools import search
+from utils.tools import token_rematch
 import configparser
 con = configparser.ConfigParser()
-file = 'config.ini'
+file = './train_config/config.ini'
 con.read(file,encoding='utf8')
 items = con.items('path')
 path = dict(items)
