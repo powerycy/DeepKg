@@ -69,7 +69,7 @@ elif config.model_type=="globalpointer":
     from model.model import GlobalPointerNet
     model = GlobalPointerNet(
         config.model_path,
-        config.categories_size,
+        categories_size,
         config.head_size,
         config.hidden_size
     ).to(config.device)

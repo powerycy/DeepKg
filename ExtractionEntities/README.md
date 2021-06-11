@@ -3,6 +3,8 @@
 - [【知识图谱构建 之 实体识别篇】](#知识图谱构建-之-实体识别篇)
   - [一、前言](#一前言)
   - [二、所复现算法](#二所复现算法)
+    - [2.1 算法介绍](#21-算法介绍)
+    - [2.2 支持功能介绍](#22-支持功能介绍)
   - [三、数据格式介绍](#三数据格式介绍)
   - [四、环境](#四环境)
   - [五、如何运行](#五如何运行)
@@ -20,10 +22,16 @@
 
 ## 二、所复现算法
 
+### 2.1 算法介绍
+
 - [【Unlabeled Entity Problem】Named Entity Recognition as Dependency Parsing](https://arxiv.org/abs/2012.05426)
 - [【Biaffine Ner】Empirical Analysis of Unlabeled Entity Problem in Named Entity Recognition](https://www.aclweb.org/anthology/2020.acl-main.577/)
 - [【GlobalPointer】](https://spaces.ac.cn/archives/8373)
 
+### 2.2 支持功能介绍
+
+1. 支持 DDP多卡形式训练；
+2. 支持 日志打印；
 
 ## 三、数据格式介绍
 
