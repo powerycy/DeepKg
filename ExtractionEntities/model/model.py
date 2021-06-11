@@ -5,9 +5,9 @@ from torch import nn
 from transformers import BertModel
 import math
 from torch.nn import functional as F
-import argparse
-parser = argparse.ArgumentParser()
-args = parser.parse_args()
+# import argparse
+# parser = argparse.ArgumentParser()
+# args = parser.parse_args()
 class SinusoidalPositionEmbedding(Module):
     """定义Sin-Cos位置Embedding
     """
