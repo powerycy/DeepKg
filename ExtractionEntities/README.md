@@ -1,5 +1,19 @@
 # 【知识图谱构建 之 实体识别篇】
 
+- [【知识图谱构建 之 实体识别篇】](#知识图谱构建-之-实体识别篇)
+  - [一、前言](#一前言)
+  - [二、所复现算法](#二所复现算法)
+  - [三、数据格式介绍](#三数据格式介绍)
+  - [四、环境](#四环境)
+  - [五、如何运行](#五如何运行)
+    - [5.1 安装 python 包](#51-安装-python-包)
+    - [5.2 模型训练](#52-模型训练)
+    - [5.3 模型预测](#53-模型预测)
+    - [5.4 模型DDP多卡形式训练](#54-模型ddp多卡形式训练)
+    - [5.5 模型DDP多卡形式训练](#55-模型ddp多卡形式训练)
+  - [六、运行结果](#六运行结果)
+  - [参考资料](#参考资料)
+
 ## 一、前言
 
 实体识别作为信息抽取的一个重要子任务，近些年已经取得了阶段性成果。本项目主要对目前目前前沿的实体识别算法进行复现。并在 【[中文医学命名实体识别（CMeEE）](https://tianchi.aliyun.com/dataset/dataDetail?spm=5176.22060218.J_2657303350.1.70e81343dFDilp&dataId=95414)】验证 复现算法 的性能。
@@ -77,20 +91,79 @@
 - python == 3.6+
 - transformers == 4.1.1
 - torch == 1.7.0
+- torchaudio==0.7.0
+- torchvision==0.8.1
+- tqdm==4.61.0
+- numpy==1.20.3
 
 ## 五、如何运行
 
+### 5.1 安装 python 包
+
 ```s
-    python main.py --model_type=biaffine --config_file=./train_config/config_yang.ini
+  pip install -r requirements.txt
+```
+
+### 5.2 模型训练
+
+```s
+    $ python main.py --model_type=biaffine --config_file=./train_config/config_yang.ini
+    >>>
+    [2021-06-10 20:58:45]: ner main.py[line:170] INFO  Epoch 1
+    [2021-06-10 20:58:56]: ner main.py[line:123] INFO  loss: 6.610330  [    0/15000]
+    ...
+    [2021-06-11 09:22:04]: ner main.py[line:123] INFO  loss: 0.291933  [14400/15000]
+    [2021-06-11 09:26:37]: ner main.py[line:123] INFO  loss: 0.305781  [14800/15000]
+    [2021-06-11 09:28:48]: ner main.py[line:124] INFO  Train F1: 0.748511%
+    [2021-06-11 09:46:01]: ner main.py[line:144] INFO  Test Error:
+    ,F1:0.648233,Avg loss: 0.081294
+
+    [2021-06-11 09:46:01]: ner main.py[line:159] INFO  valid:  f1: 0.64823,  best f1: 0.64861
+
 ```
 
 > 参数介绍：
 > model_type     实体识别模型    ['biaffine', 'UnlabeledEntity', 'globalpointer']
 > config_file    可配置所需的参数
 
+### 5.3 模型预测
 
-1. UnlabeledEntity和Biaffine直接运行就可以，inference可以预测出结果
-2. 分别对应三个模型Globalpointer为DDP多卡形式，运行脚本run_globalpointer即可，运行ddp_inference或者inference都可得到结果。
+```s
+  $ python inference.py --model_type=UnlabeledEntity --config_file=./train_config/config_altas.ini
+  >>>
+  define model!
+  loading model!
+  save_model/multilabel_glob_UnlabeledEntity.pth
+  100%|███████████████████████████████████████████████████████████| 3000/3000 [11:02<00:00,  4.53it/s]
+```
+
+### 5.4 模型DDP多卡形式训练
+
+```s
+    $ python main_ddp.py --model_type=biaffine --config_file=./train_config/config_yang.ini
+    >>>
+    [2021-06-10 20:58:45]: ner main.py[line:170] INFO  Epoch 1
+    [2021-06-10 20:58:56]: ner main.py[line:123] INFO  loss: 6.610330  [    0/15000]
+    ...
+    [2021-06-11 09:22:04]: ner main.py[line:123] INFO  loss: 0.291933  [14400/15000]
+    [2021-06-11 09:26:37]: ner main.py[line:123] INFO  loss: 0.305781  [14800/15000]
+    [2021-06-11 09:28:48]: ner main.py[line:124] INFO  Train F1: 0.748511%
+    [2021-06-11 09:46:01]: ner main.py[line:144] INFO  Test Error:
+    ,F1:0.648233,Avg loss: 0.081294
+
+    [2021-06-11 09:46:01]: ner main.py[line:159] INFO  valid:  f1: 0.64823,  best f1: 0.64861
+```
+
+### 5.5 模型DDP多卡形式训练
+
+```s
+  $ python inference_ddp.py --model_type=UnlabeledEntity --config_file=./train_config/config_altas.ini
+  >>>
+  define model!
+  loading model!
+  save_model/multilabel_glob_UnlabeledEntity.pth
+  100%|███████████████████████████████████████████████████████████| 3000/3000 [11:02<00:00,  4.53it/s]
+```
 
 ## 六、运行结果
 
@@ -98,7 +171,6 @@
 |       ----       | ----- | --------- | ------ |   --------   |
 |     biaffine     | ----- | --------- | ------ |   0.63930    |
 | UnlabeledEntity  | ----- | --------- | ------ |   0.64861    |
-
 
 
 
