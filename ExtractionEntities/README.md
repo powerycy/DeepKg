@@ -12,7 +12,7 @@
     - [5.2 模型训练](#52-模型训练)
     - [5.3 模型预测](#53-模型预测)
     - [5.4 模型DDP多卡形式训练](#54-模型ddp多卡形式训练)
-    - [5.5 模型DDP多卡形式训练](#55-模型ddp多卡形式训练)
+    - [5.5 模型DDP多卡形式预测](#55-模型ddp多卡形式预测)
   - [六、运行结果](#六运行结果)
   - [参考资料](#参考资料)
 
@@ -162,7 +162,7 @@
     [2021-06-11 09:46:01]: ner main.py[line:159] INFO  valid:  f1: 0.64823,  best f1: 0.64861
 ```
 
-### 5.5 模型DDP多卡形式训练
+### 5.5 模型DDP多卡形式预测
 
 ```s
   $ python inference_ddp.py --model_type=UnlabeledEntity --config_file=./train_config/config_altas.ini
