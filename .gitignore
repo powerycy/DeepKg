@@ -20,7 +20,6 @@ task/.idea/*
 *.all
 *.hdf5
 *.json
-*.txt
 *.csv
 *.xml
 *.zip
