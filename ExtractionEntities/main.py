@@ -73,8 +73,6 @@ elif config.model_type=="globalpointer":
         config.head_size,
         config.hidden_size
     ).to(config.device)
-    # model = nn.DataParallel(model.to(device), device_ids=gpus, output_device=gpus[0])
-    model = DDP(model,device_ids=[config.local_rank],find_unused_parameters=True)
 
 
 if config.use_gpu:
