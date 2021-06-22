@@ -16,11 +16,12 @@ from metrics.metrics import global_pointer_f1_score
 import sys
 import argparse
 import torch.distributed as dist
-from utils.tools import reduce_tensor
+from utils.tools import reduce_tensor,setup_seed
 import logging
 # torch.cuda.manual_seed_all(seed)
 # from inference import NamedEntityRecognizer
 # NER = NamedEntityRecognizer()
+setup_seed(1234)
 from torch.nn.parallel import DistributedDataParallel as DDP
 #DDP
 # from torch.utils.data.distributed import DistributedSampler
@@ -87,7 +88,7 @@ def train(dataloader, model, loss_func, optimizer):
         token_type_ids = data['token_type_ids'].squeeze().to(device)
         label = label.to(device)
         pred = model(input_ids,attention_mask,token_type_ids)
-        loss = loss_func(label,pred)
+        loss = loss_func(label,pred,is_train=True)
         temp_n,temp_d = global_pointer_f1_score(label,pred)
         numerate += temp_n
         # print(numerate)
@@ -129,7 +130,7 @@ def evaluate(dataloader,loss_func, model):
             token_type_ids = data['token_type_ids'].squeeze().to(device)
             label = label.squeeze().to(device)
             pred = model(input_ids, attention_mask, token_type_ids)
-            val_loss += loss_func(label,pred)
+            val_loss += loss_func(label,pred,is_train=False)
             temp_n,temp_d = global_pointer_f1_score(label,pred)
             numerate += temp_n
             denominator += temp_d
