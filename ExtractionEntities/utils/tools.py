@@ -13,7 +13,13 @@ def reduce_tensor(tensor: torch.Tensor,reduce_loss) -> torch.Tensor:
         rt /= dist.get_world_size()#进程数
         return rt
     else:
-        return rt 
+        return rt
+def setup_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
 class token_rematch:
     def __init__(self):
         self._do_lower_case = True
