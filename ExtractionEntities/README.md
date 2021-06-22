@@ -181,7 +181,10 @@
 | UnlabeledEntity  | ----- | --------- | ------ |   0.64861    |
 
 
-
+## 七、更新
+2021.06.22: 
+1. 增加了随机种子模块；
+2. 增加了负采样模块；
 ## 参考资料
 
 1. [Named Entity Recognition as Dependency Parsing](https://arxiv.org/abs/2012.05426)
