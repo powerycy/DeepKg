@@ -14,7 +14,7 @@ import torch.distributed as dist
 # torch.cuda.set_device('cuda:{}'.format(gpus[0]))
 from tqdm import tqdm
 import configparser
-from utils.tools import reduce_tensor
+from utils.tools import reduce_tensor,setup_seed
 import time
 con = configparser.ConfigParser()
 import argparse
@@ -22,6 +22,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--local_rank', default=-1, type=int,
                     help='node rank for distributed training')
 args = parser.parse_args()
+setup_seed(1234)
 # local_rank = torch.distributed.get_rank()
 # dist.init_process_group(backend='nccl')
 torch.cuda.set_device(args.local_rank)
