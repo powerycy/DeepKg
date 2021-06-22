@@ -1,7 +1,7 @@
 import os
 import torch
 from transformers import BertTokenizer, BertModel, BertConfig,BertTokenizerFast
-from utils.tools import token_rematch
+from utils.tools import token_rematch,setup_seed
 import numpy as np
 from model.model import GlobalPointerNet
 from data_processing.data_process import yeild_data
@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--model_type', type=str, default="biaffine", choices=['biaffine', 'UnlabeledEntity', 'globalpointer'], help='choice model type')
 parser.add_argument('--config_file', type=str, default="./train_config/config_yang.ini",  help='choice config file')
 args = parser.parse_args()
-
+setup_seed(1234)
 from Config import Config
 config = Config(args.config_file,args.model_type)
 from utils.Logginger import init_logger
