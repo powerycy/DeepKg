@@ -98,7 +98,7 @@ def evaluate(dataloader,loss_func, model):
             denominator += temp_d
     val_loss /= size
     val_f1 = 2*numerate/denominator
-    print(f"Test Error: \n ,F1:{(val_f1):>4f},Avg loss: {val_loss:>8f} \n")
+    print(f"F1:{(val_f1):>4f},Avg loss: {val_loss:>8f} \n")
     return val_f1
 class Evaluator(object):
     """评估与保存
