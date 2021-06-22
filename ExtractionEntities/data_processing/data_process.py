@@ -3,9 +3,9 @@ from torch.utils.data import Dataset,DataLoader
 from transformers import BertModel, BertConfig,PreTrainedTokenizerFast,BertTokenizerFast
 import json
 from utils.tools import search
-from utils.tools import token_rematch
+from utils.tools import token_rematch,setup_seed
 from torch.utils.data.distributed import DistributedSampler
-
+setup_seed(1234)
 def load_data(filename,is_train):
     
     resultList = []
