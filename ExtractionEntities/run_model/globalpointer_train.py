@@ -142,7 +142,7 @@ def evaluate(dataloader,loss_func, model):
     val_f1 = 2*numerate/denominator
     if args.local_rank == 0:
         # val_f1 = 2*numerate/denominator
-        print(f"Test Error: \n ,F1:{(val_f1):>4f},Avg loss: {val_loss:>8f} \n")
+        print(f"F1:{(val_f1):>4f},Avg loss: {val_loss:>8f} \n")
     return val_f1
 # def evaluate_val(data):
 #     """评测函数
