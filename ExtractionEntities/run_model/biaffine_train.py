@@ -14,10 +14,12 @@ from loss_function.loss_fun import multilabel_categorical_crossentropy,global_po
 from metrics.metrics import global_pointer_f1_score
 import sys
 from torch.nn.utils import clip_grad_norm_
+from utils.tools import setup_seed
 gpus = [3,5,6]
 torch.cuda.set_device('cuda:{}'.format(gpus[0]))
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 # print("Using {} device".format(device))
+setup_seed(1234)
 import configparser
 con = configparser.ConfigParser()
 file = './train_config/config.ini'
@@ -65,7 +67,7 @@ def train(dataloader, model, loss_func, optimizer):
         token_type_ids = data['token_type_ids'].squeeze().to(device)
         label = label.to(device)
         pred = model(input_ids,attention_mask,token_type_ids)
-        loss = loss_func(label,pred)
+        loss = loss_func(label,pred,is_train=True)
         temp_n,temp_d = global_pointer_f1_score(label,pred)
         numerate += temp_n
         denominator += temp_d
@@ -90,7 +92,7 @@ def evaluate(dataloader,loss_func, model):
             token_type_ids = data['token_type_ids'].squeeze().to(device)
             label = label.squeeze().to(device)
             pred = model(input_ids, attention_mask, token_type_ids)
-            val_loss += loss_func(label,pred).item()
+            val_loss += loss_func(label,pred,is_train=False).item()
             temp_n,temp_d = global_pointer_f1_score(label,pred)
             numerate += temp_n
             denominator += temp_d
