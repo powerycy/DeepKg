@@ -72,7 +72,6 @@ def train(dataloader, model, loss_func, optimizer):
         temp_n,temp_d = global_pointer_f1_score(label,pred)
         numerate += temp_n
         denominator += temp_d
-        # Backpropagation
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -99,7 +98,7 @@ def evaluate(dataloader,loss_func, model):
             denominator += temp_d
     val_loss /= size
     val_f1 = 2*numerate/denominator
-    print(f"Test Error: \n ,F1:{(val_f1):>4f},Avg loss: {val_loss:>8f} \n")
+    print(f"F1:{(val_f1):>4f},Avg loss: {val_loss:>8f} \n")
     return val_f1
 class Evaluator(object):
     """评估与保存
