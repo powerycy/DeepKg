@@ -10,7 +10,8 @@
 
 ### 2.1 [【知识图谱构建 之 实体识别篇】](ExtractionEntities/)
 
-【知识图谱构建 之 实体识别篇】 目前提供了一些NER的方法，具体细节请查看：https://zhuanlan.zhihu.com/p/375805722
+【知识图谱构建 之 实体识别篇】 目前提供了一些torch版本的NER方法，包含GlobalPointer,Biaffine,UnlabeledEntity，以及R-drop的应用,EMA方法的应用。
+具体细节请查看：https://zhuanlan.zhihu.com/p/375805722
 
 ### 2.2 [【知识图谱构建 之 语义标准化篇】](Normalization/)
 
