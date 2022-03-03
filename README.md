@@ -16,6 +16,8 @@
 ### 2.2 [【知识图谱构建 之 语义标准化篇】](Normalization/)
 
 【知识图谱构建 之 语义标准化篇】 目前采用 [召回（recall）](Normalization/recall/) 和 [排序（rank）](Normalization/rank/)方式进行 语义标准化，目前 只 提供  [召回（recall）](Normalization/recall/) 。
+### 2.3 [【知识图谱构建 之 向量召回】]
 
+【知识图谱构建 之 向量召回】 目前采用 SimCSE跟faiss搭配在一起，支持无监督跟有监督训练。
 
 
