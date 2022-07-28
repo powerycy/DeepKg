@@ -24,5 +24,6 @@
 
 【知识图谱构建 之 专业词挖掘】 目前采用AutoPhrase非常经典跟实用的方法，并加入了bert来做。
  也感谢大佬提供的实现版本:https://github.com/luozhouyang/AutoPhraseX
+ 详情请见知乎：https://zhuanlan.zhihu.com/p/434919516
 
 
