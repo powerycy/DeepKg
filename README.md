@@ -16,11 +16,11 @@
 ### 2.2 [【知识图谱构建 之 语义标准化篇】](Normalization/)
 
 【知识图谱构建 之 语义标准化篇】 目前采用 [召回（recall）](Normalization/recall/) 和 [排序（rank）](Normalization/rank/)方式进行 语义标准化，目前 只 提供  [召回（recall）](Normalization/recall/) 。
-### 2.3 [【知识图谱构建 之 向量召回】]
+### 2.3 [【知识图谱构建 之 向量召回】](SimCSE-Chinese-Pytorch/)
 
 【知识图谱构建 之 向量召回】 目前采用 SimCSE跟faiss搭配在一起，支持无监督跟有监督训练。
  详情请看苏神的解读：https://spaces.ac.cn/archives/8348
-### 2.4 [【知识图谱构建 之 AutoPhrase】]
+### 2.4 [【知识图谱构建 之 AutoPhrase】](AutoPhraseX-main/)
 
 【知识图谱构建 之 专业词挖掘】 目前采用AutoPhrase非常经典跟实用的方法，并加入了bert来做。
  也感谢大佬提供的实现版本:https://github.com/luozhouyang/AutoPhraseX
