@@ -25,5 +25,7 @@
 【知识图谱构建 之 专业词挖掘】 目前采用AutoPhrase非常经典跟实用的方法，并加入了bert来做。
  也感谢大佬提供的实现版本:https://github.com/luozhouyang/AutoPhraseX<br>
  详情请见知乎：https://zhuanlan.zhihu.com/p/434919516
-
+### 2.5 [【知识图谱构建 之 AutoNER】](AutoNER/)
+【知识图谱构建 之 专业词挖掘】 目前采用AutoNer非常经典跟实用的方法，适配了中文业务。
+ 详情请见:https://github.com/shangjingbo1226/AutoNER
 
