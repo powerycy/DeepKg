@@ -1,0 +1,8 @@
+tabulate
+importlib_metadata
+nltk
+visualdl
+transformers
+torch
+tensorboardX
+logging
