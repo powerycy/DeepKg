@@ -1,0 +1,3 @@
+[
+  "tests/autophrase_test.py::AutoPhraseTest::test_autophrase_small"
+]

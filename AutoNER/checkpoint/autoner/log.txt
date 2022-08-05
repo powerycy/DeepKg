@@ -1,0 +1,4 @@
+[2016-02-14 10:13:05]: Saving system environemnt and python packages
+[2016-02-14 10:33:34]: It's recommended to set ``CUDA_DEVICE_ORDER``to be ``PCI_BUS_ID`` by ``export CUDA_DEVICE_ORDER=PCI_BUS_ID``;otherwise, it's not guaranteed that the gpu index frompytorch to be consistent the ``nvidia-smi`` results.
+[2016-02-14 10:33:34]: GPU memory usages:
+[2016-02-14 10:33:34]: GPU 1: 651 MiB (Used Memory)	  0 % (Utils)
