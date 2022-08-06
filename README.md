@@ -29,3 +29,6 @@
 【知识图谱构建 之 专业词挖掘】 目前采用AutoNer非常经典跟实用的方法，适配了中文业务。
  详情请见:https://github.com/shangjingbo1226/AutoNER
 
+### 2.5 [【知识图谱构建 之 UIE生成模型】](UIE_torch/)
+【知识图谱构建 之 UIE】 基于ccks2022的torch版本生成式UIE。
+ 详情请见:https://zhuanlan.zhihu.com/p/550313528
