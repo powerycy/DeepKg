@@ -3,3 +3,8 @@
 # Acknowledge
 - 感谢PaddleNLP的开源分享
 CMEE阿里测试如下：
+
+|        模型      |  acc  | precision | recall |  val_f_beta  |
+|       ----       | ----- | --------- | ------ |   --------   |
+|     biaffine     | ----- | --------- | ------ |   0.63930    |
+| UnlabeledEntity  | ----- | --------- | ------ |   0.64861    |
